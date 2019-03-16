@@ -1,0 +1,9 @@
+create f f 200
+create f f 200
+quit
+*
+Created user f
+Failed to create user
+Goodbye
+*
+

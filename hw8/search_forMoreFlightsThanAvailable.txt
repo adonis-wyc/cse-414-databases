@@ -1,0 +1,23 @@
+search "Denver CO" "New Orleans LA" 3 3 333
+quit
+*
+Itinerary 0: 1 flight(s), 139 minutes
+ID: 1039763 Day: 3 Carrier: WN Number: 4212 Origin: Denver CO Dest: New Orleans LA Duration: 139 Capacity: 11 Price: 695
+Itinerary 1: 1 flight(s), 140 minutes
+ID: 874907 Day: 3 Carrier: F9 Number: 702 Origin: Denver CO Dest: New Orleans LA Duration: 140 Capacity: 1 Price: 298
+Itinerary 2: 1 flight(s), 145 minutes
+ID: 1039762 Day: 3 Carrier: WN Number: 3232 Origin: Denver CO Dest: New Orleans LA Duration: 145 Capacity: 12 Price: 710
+Itinerary 3: 1 flight(s), 146 minutes
+ID: 1019970 Day: 3 Carrier: UA Number: 1194 Origin: Denver CO Dest: New Orleans LA Duration: 146 Capacity: 2 Price: 794
+Itinerary 4: 1 flight(s), 147 minutes
+ID: 498411 Day: 3 Carrier: UA Number: 1470 Origin: Denver CO Dest: New Orleans LA Duration: 147 Capacity: 0 Price: 124
+Itinerary 5: 1 flight(s), 152 minutes
+ID: 207553 Day: 3 Carrier: F9 Number: 738 Origin: Denver CO Dest: New Orleans LA Duration: 152 Capacity: 4 Price: 935
+Itinerary 6: 1 flight(s), 152 minutes
+ID: 497313 Day: 3 Carrier: UA Number: 1434 Origin: Denver CO Dest: New Orleans LA Duration: 152 Capacity: 17 Price: 892
+Itinerary 7: 1 flight(s), 153 minutes
+ID: 497035 Day: 3 Carrier: UA Number: 1430 Origin: Denver CO Dest: New Orleans LA Duration: 153 Capacity: 2 Price: 170
+Itinerary 8: 1 flight(s), 160 minutes
+ID: 497190 Day: 3 Carrier: UA Number: 1432 Origin: Denver CO Dest: New Orleans LA Duration: 160 Capacity: 2 Price: 886
+Goodbye
+*

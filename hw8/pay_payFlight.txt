@@ -1,0 +1,16 @@
+create user1 f 401
+login user1 f
+search "Seattle WA" "Portland OR" 1 1 1
+book 0
+pay 1
+quit
+*
+Created user user1
+Logged in as user1
+Itinerary 0: 1 flight(s), 38 minutes
+ID: 377316 Day: 1 Carrier: OO Number: 6342 Origin: Seattle WA Dest: Portland OR Duration: 38 Capacity: 0 Price: 400
+Booked flight(s), reservation ID: 1
+Paid reservation: 1 remaining balance: 1
+Goodbye
+*
+
