@@ -1,0 +1,5 @@
+<<<<<<< HEAD
+DBMS lets us query large data sets without using our computers power. This is because the queries are being run on the cloud. If I tried to run these queries on my computer they would be slow and possibly not even finish. Being on the cloud means it has to be connected to the internet at all times for the query to work and an interruption to the connection will cause the query to fail
+=======
+DBMS lets us query large data sets without using our computers power. This is because the queries are being run on the cloud. If I tried to run these queries on my computer they would be slow and possibly not even finish. There is a lot of advantage to running things on the cloud, such as speed and saving power. A downside is that being on the cloud means it has to be connected to the internet at all times for the query to work and an interruption to the connection will cause the query to fail
+>>>>>>> origin/master
