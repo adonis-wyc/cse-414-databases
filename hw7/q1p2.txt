@@ -1,0 +1,87 @@
+2b.)
+
+CREATE TABLE InsuranceCo(
+name VARCHAR(50) PRIMARY KEY,
+phone INT
+);
+CREATE TABLE Person(
+ssn INT PRIMARY KEY,
+name VARCHAR(50)
+);
+CREATE TABLE Driver(
+ssn INT PRIMARY KEY,
+driverID INT,
+FOREIGN KEY (ssn) REFERENCES Person(ssn)
+);
+CREATE TABLE NonprofessionalDriver(
+driverID INT PRIMARY KEY,
+FOREIGN KEY (driverID) REFERENCES Driver(driverID)
+);
+CREATE TABLE ProfessionalDriver(
+driverID INT PRIMARY KEY,
+medicalHistory VARCHAR(50),
+FOREIGN KEY (driverID) REFERENCES Driver(driverID)
+);
+CREATE TABLE Truck(
+licensePlate VARCHAR(50) PRIMARY KEY,
+capacity VARCHAR(50),
+driverID INT REFERENCES ProfessionalDriver(driverID),
+FOREIGN KEY (licensePlate) REFERENCES Vehicle(licensePlate)
+);
+CREATE TABLE Car(
+licensePlate VARCHAR(50) PRIMARY KEY,
+make VARCHAR(50),
+FOREIGN KEY (licensePlate) REFERENCES Vehicle(licensePlate)
+);
+CREATE TABLE Vehicle(
+licensePlate VARCHAR(50) PRIMARY KEY,
+year INT,
+maxLiability REAL,
+name VARCHAR(50) REFERENCES InsuranceCo(name),
+ssn INT REFERENCES Person(ssn)
+);
+CREATE TABLE Drives(
+driverID INT REFERENCES NonProfessionalDriver(driverID),
+licensePlate VARCHAR(50) REFERENCES CAR(licensePlate),
+PRIMARY KEY(driverID, licensePlate)
+);
+
+
+2c.) Which relation in your relational schema represents the relationship "insures" in the E/R diagram and why is that your representation?
+The insures relationship is in the Vehicle -IncuranceCo relationship. I have chosen this relationship because a vehicle needs insurance and needs to be able to reference InsuranceCo to get that information. If a vehicle does not have insurance, these attributes will be null. 
+
+2d.)Compare the representation of the relationships "drives" and "operates" in your schema, and explain why they are different.
+the operate relationship is many-one and the Drives relationships is many-many. A truck can reference a one professional driver or many professional drivers. However, a car cannot show many drivers for one car. 
+
+3a) R(A,B,C,D,E) with functional dependencies D → B, CE → A.
+1) Unique Key: (C,D,E)
+2) Both dependencies violate BCNF.
+3) Fixing CE -> A gives (C,E,A), (C,D,E), (C,D,B)
+4) Fixing D-> gives (A,C,E), (C,D,E), and (D,B) which is final decomposition
+
+3b) S(A,B,C,D,E) with functional dependencies A → E, BC → A, DE → B.
+1) Unique keys are (A,C,D), (B,C,D), and (C,D,A)
+2) all dependencies violate BCNF
+3) Fixing BC->A will give us (B,C,D,E) and (B,C,A)
+4) Dependency A->E is gone therefore this is not a dependence. Therefore we preserve decomposition.
+5) Fixing DE->B will give us (C,D,E), (D,E,B), (B,C,A) which will be the final decomposition.
+
+4a) All sets of attributes are closed.
+A->A
+B->B
+C->C
+D->D
+
+4b) The only closed sets are {} and {A,B,C,D}.
+A -> B
+B -> C
+C -> D
+D -> A
+
+4c) The only closed sets are {}, {A,B}, and {A,B,C,D}.
+A -> B
+B -> A
+C -> A,B,D
+D -> A,B,C
+
+

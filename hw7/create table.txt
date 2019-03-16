@@ -1,0 +1,17 @@
+.mode csv
+.header ON
+PRAGMA foreign_keys=ON;
+
+DROP TABLE IF EXISTS Sales;
+
+
+
+CREATE TABLE Sales (
+	name varchar(10),
+	discount varchar(4),
+	month varchar(5), 
+	price integer
+);
+
+.separator "\t"
+.import mrFrumbleData.txt Sales
