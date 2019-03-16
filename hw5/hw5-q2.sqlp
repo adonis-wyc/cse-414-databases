@@ -1,0 +1,7 @@
+USE hw5;
+SELECT  c.name as country, c.population, count(r) as num_religions
+FROM world w, w.mondial.country c, 
+     CASE WHEN is_array(c.religions) THEN c.religions 
+     ELSE [c.religions] END r 
+GROUP BY c.name, c.population
+ORDER BY c.name ASC;

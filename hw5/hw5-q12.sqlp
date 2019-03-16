@@ -1,0 +1,15 @@
+USE hw5index;
+SELECT seaQuery.first_country as first_country, seaQuery.second_country as second_country, seaQuery.seas as sea, mountainQuery.mountains as mountain
+FROM
+(SELECT DISTINCT  first_country, second_country, (SELECT VALUE seas.sea FROM seas) as seas
+FROM country c1, country c2, sea s, mountain m, sea s2, mountain m2, split(m.`-country`, ' ') mc, split(s.`-country`, ' ') sc, split(m2.`-country`, ' ') mc2, split(s2.`-country`, ' ') sc2
+WHERE c1.name != c2.name AND mc = c1.`-car_code` AND sc = c1.`-car_code` AND mc2 =  c2.`-car_code` AND sc2 =  c2.`-car_code` AND m2.name = m.name AND s2.name = s.name AND c1.name < c2.name
+GROUP BY c1.name as first_country, c2.name as second_country
+GROUP as seas(s as sea)) seaQuery
+JOIN
+(SELECT DISTINCT  first_country, second_country, (SELECT VALUE mountains.mountain FROM mountains) as mountains
+FROM country c1, country c2, sea s, mountain m, sea s2, mountain m2, split(m.`-country`, ' ') mc, split(s.`-country`, ' ') sc, split(m2.`-country`, ' ') mc2, split(s2.`-country`, ' ') sc2
+WHERE c1.name != c2.name AND mc = c1.`-car_code` AND sc = c1.`-car_code` AND mc2 =  c2.`-car_code` AND sc2 =  c2.`-car_code` AND m2.name = m.name AND s2.name = s.name AND c1.name < c2.name
+GROUP BY c1.name as first_country, c2.name as second_country
+GROUP as mountains(m as mountain)) mountainQuery
+ON seaQuery.first_country = mountainQuery.first_country AND seaQuery.second_country = mountainQuery.second_country;

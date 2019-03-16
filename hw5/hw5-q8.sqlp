@@ -1,0 +1,12 @@
+USE hw5;
+SELECT a.country_code, a.country_name, a.area
+FROM
+(
+SELECT c.name as country_name, (select b.name from s b) as sea_name, c.`-car_code` as country_code, c.`-area` as area
+FROM world w, w.mondial.country c
+let s = (SELECT m.name as name, bordering
+FROM world w2,  w2.mondial.sea m, split(m.`-country`, ' ') r, [split(m.`-bordering`, ' ')] bordering
+WHERE c.`-car_code` = r )
+) as a
+WHERE array_count(a.sea_name) = 0
+ORDER BY a.area DESC;

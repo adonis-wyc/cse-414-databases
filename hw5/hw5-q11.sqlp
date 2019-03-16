@@ -1,0 +1,6 @@
+USE hw5index;
+SELECT DISTINCT c1.name as first_country, c2.name as second_country
+FROM country c1, country c2, sea s, mountain m, sea s2, mountain m2, split(m.`-country`, ' ') mc, split(s.`-country`, ' ') sc, split(m2.`-country`, ' ') mc2, split(s2.`-country`, ' ') sc2
+WHERE c1.name != c2.name AND mc = c1.`-car_code` AND sc = c1.`-car_code` AND mc2 =  c2.`-car_code` AND sc2 =  c2.`-car_code` AND m2.name = m.name AND s2.name = s.name AND c1.name < c2.name;
+
+--Duration of all jobs: 2.217 sec

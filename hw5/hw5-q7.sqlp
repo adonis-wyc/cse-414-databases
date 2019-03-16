@@ -1,0 +1,12 @@
+USE hw5;
+SELECT n.country_name as country_name,n.s as seas, n.country_code as country_code
+FROM
+(
+SELECT c.name as country_name, s, c.`-car_code` as country_code
+FROM world x, x.mondial.country c
+let s = (SELECT z.name as sea
+FROM world x2,  x2.mondial.sea z, split(z.`-country`, ' ') b, [split(z.`-bordering`, ' ')] bordering
+WHERE c.`-car_code` = b)
+) as n
+WHERE array_count(n.s) >= 2
+ORDER BY array_count(n.s) DESC;

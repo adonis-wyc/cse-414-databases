@@ -1,0 +1,7 @@
+USE hw5;
+SELECT cities.name as city
+FROM world w, w.mondial.country c, c.province p, CASE WHEN p.city is missing THEN []
+                                                      WHEN is_array(p.city) THEN p.city
+                                                      ELSE [p.city] END cities
+WHERE  c.name ='Peru'
+ORDER BY cities.name ASC;

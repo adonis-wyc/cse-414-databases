@@ -1,0 +1,6 @@
+USE hw5;
+SELECT DISTINCT c1.name as first_country, c2.name as second_country
+FROM world w, w.mondial.country c1, world w2, w2.mondial.country c2, w.mondial.sea s, w.mondial.mountain m, w2.mondial.sea s2, w2.mondial.mountain m2, split(m.`-country`, ' ') mc, split(s.`-country`, ' ') sc, split(m2.`-country`, ' ') mc2, split(s2.`-country`, ' ') sc2
+WHERE c1.name != c2.name AND mc = c1.`-car_code` AND sc = c1.`-car_code` AND mc2 =  c2.`-car_code` AND sc2 =  c2.`-car_code` AND m2.name = m.name AND s2.name = s.name AND c1.name < c2.name;
+
+--Duration of all jobs: 92.239 sec
